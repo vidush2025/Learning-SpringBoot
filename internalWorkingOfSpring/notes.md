@@ -13,3 +13,8 @@
 "Dependency" means Obj1 must not run or be created without Obj2 as Obj1 is dependent on Obj2.
 Thus, to implement this, we created a constructor of the main class in "InternalWorkingOfSpringApplication" with a parameter of "RazorPayPaymentService". This makes sure that the obj. of main class must not be created in the 1st place without the latter. This avoids any Null Exception activity.
 // This is an example of "Constructor Dependency Injection".
+4. Another kind of dependency injection is "Field Injection". It is done using the "@Autowired" Annotation.
+Usage example: we can remove any "@Component" annotation from the definition class and just add
+"@Autowired" annotation where the object creation is required. ex- remove @Component from RazorPayPayementService.java and just do (in main file)
+@Autowired
+private RazorPayPaymentService payementService;
