@@ -18,3 +18,7 @@ Usage example: we can remove any "@Component" annotation from the definition cla
 "@Autowired" annotation where the object creation is required. ex- remove @Component from RazorPayPayementService.java and just do (in main file)
 @Autowired
 private RazorPayPaymentService payementService;
+5. You don't need to form a constructor (with params) for main class when you are using Autowired annotation.
+6. When we use Constructor DI, we can make any object (like paymentService) as "private final", this maintains complete security for the variable and makes it constant throughout the program. 
+BUT we can't do the same while using Autowired DI.
+7. DI helps to avoid tight coupling. 
