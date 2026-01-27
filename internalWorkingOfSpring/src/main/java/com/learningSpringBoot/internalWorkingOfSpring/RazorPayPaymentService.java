@@ -2,8 +2,10 @@ package com.learningSpringBoot.internalWorkingOfSpring;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class RazorPayPaymentService {
+//@Component
+public class RazorPayPaymentService implements PaymentService{
+
+    @Override //optional
     public  String pay(){
         String payment = "RazorPay payment";
         System.out.println("Payment done via: " + payment);

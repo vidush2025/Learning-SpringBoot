@@ -21,4 +21,13 @@ private RazorPayPaymentService payementService;
 5. You don't need to form a constructor (with params) for main class when you are using Autowired annotation.
 6. When we use Constructor DI, we can make any object (like paymentService) as "private final", this maintains complete security for the variable and makes it constant throughout the program. 
 BUT we can't do the same while using Autowired DI.
-7. DI helps to avoid tight coupling. 
+7. DI helps to avoid tight coupling.
+8. We use interface to introduce loose coupling between components. 
+Here we initially only had RazorPayPaymentService as a service but if we wanted to create a new PaymentService, we would need to change the paymentService everywhere.... This is the effect of tight coupling.
+
+To avoid this, we create the interface PaymentService and implement it on RazorPay and Stripe...
+
+9. We can only have bean of 1 component of the same interface... we initially had @Component on both RazorPay and Stripe, which would cause error as the Spring would not understand which bean to create.
+Thus we need to either give @Primary to one class, or remove @Component from one.
+This way we introduce loose coupling to our system.
+10. Loose Coupling is very very important for easy and efficient necessity for scalable applicaitions.
