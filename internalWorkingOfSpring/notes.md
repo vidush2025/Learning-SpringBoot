@@ -31,3 +31,10 @@ To avoid this, we create the interface PaymentService and implement it on RazorP
 Thus we need to either give @Primary to one class, or remove @Component from one.
 This way we introduce loose coupling to our system.
 10. Loose Coupling is very very important for easy and efficient necessity for scalable applicaitions.
+11. We can use application.properties to decide which bean to create, for ConditionalOnProperty
+12. There are tons of Condition... autoconfiguring services which can be explored. These are a kind of conditional rendering which decide which bean to create. If two intefaces have @Component on them, we can do Conditional... rendering of one and the other(s) will be ignored.
+13. We did the above for RazorPay and Stripe Payement service. RazorPay bean is created runs only when the "payment.provider" in application.properties is "razorpay".
+Stripe bean is created only when "payment.provider" == "stripe".
+This also helps in reducing coupling.
+14. To even avoid this kind of conditional bean creation (because we must have to change the properties file everytime we want to change the PaymentService), we may use "Envioronment Variable" to decide which one to use.
+    - Env vars >>>>>> application.properties, so always env will get more preference if clash of properties occur.
