@@ -1,4 +1,5 @@
 # Spring Boot Tutorial
 
-- this repo is just gonna contain the files and folders I create/write while learning SpringBoot
-using IntellijIDEA
+This repository contains all the files and folders I create while learning **Spring Boot** using **IntelliJ IDEA**.
+
+Nothing fancy — just my learning process, experiments, and notes as I go.
