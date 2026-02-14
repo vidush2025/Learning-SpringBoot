@@ -6,6 +6,7 @@ import com.restAPIs.restAPIs.dto.UpdateStudentDto;
 import com.restAPIs.restAPIs.entity.Student;
 import com.restAPIs.restAPIs.repository.StudentRepository;
 import com.restAPIs.restAPIs.service.StudentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -31,7 +32,7 @@ public class StudentController {
         return ResponseEntity.ok(studentService.getStudentById(id));
     }
     @PostMapping("/students")
-    public ResponseEntity<StudentDto> createNewStudent(@RequestBody CreateNewStudentDto newStudentDto){
+    public ResponseEntity<StudentDto> createNewStudent(@RequestBody @Valid CreateNewStudentDto newStudentDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(studentService.createNewStudent(newStudentDto));
     }
 
@@ -42,7 +43,7 @@ public class StudentController {
     }
 
     @PutMapping("/student/{id}")
-    public ResponseEntity<StudentDto> updateStudentById(@PathVariable Long id, UpdateStudentDto updateStudentDto){
+    public ResponseEntity<StudentDto> updateStudentById(@PathVariable Long id, @Valid UpdateStudentDto updateStudentDto){
         return ResponseEntity.status(HttpStatus.OK).body(studentService.updateStudentById(id, updateStudentDto));
     }
 
