@@ -49,3 +49,13 @@ CLIENT --RestAPI--> CONTROLLER --Mapping & DTO--> SERVICE --Entity--> REPOSITORY
 - It uses the field names in the entity definition to map the elements, thats why the two entities must have similar/same field names in the class definition.
 - It also requires the "@NoArgsConstructor" annotation to map the entities properly, otherwise throws error
 - ModelMapper is a very reusable and efficient Springboot library/dependency, thus can be placed in the "config" folder so that it may be accessed by all the service classes when needed.
+
+# ResponseEntity<>
+A response entity is a JAVA class used to send structured responses to the frontend. We can combine this with modelMapper to create instant new DTOs and send our response to the frontend for further processing. A Response entity can send our desired HTTP status code (like 200, 401, 404 etc.), with a response body containing the response dto, and also a message if we want. Nothing is required, a responseEntity can also be of void type. So it is very flexible to use and communicate with the frontend.
+
+# HTTP Codes
+Important HTTP codes are required to maintain structure and a consistent, no-confusion communication with the frontend. HTTP codes can be sent directly using the ResponseEntity<> and can be read about in the HttpStatus.class
+Some popular and commonly used HTTP codes are:
+1. 200: OK,
+2. 201: CREATED,
+3. 401: UNAUTHORIZED, etc.
