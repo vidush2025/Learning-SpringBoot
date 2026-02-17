@@ -6,22 +6,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="learningSpringBoot" />
-        <module name="internalWorkingOfSpring" />
       </profile>
-      <profile name="Annotation profile for restAPIs" enabled="true">
+      <profile name="Annotation profile for hospitalManagement" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
-        <module name="restAPIs" />
+        <module name="hospitalManagement" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="internalWorkingOfSpring" target="25" />
+      <module name="learningSpringBoot" target="25" />
+      <module name="restAPIs" target="25" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hospitalManagement" options="-parameters" />
       <module name="internalWorkingOfSpring" options="-parameters" />
       <module name="learningSpringBoot" options="-parameters" />
       <module name="restAPIs" options="-parameters" />
