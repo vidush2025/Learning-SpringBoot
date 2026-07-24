@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
                 @Index(name = "patientDob", columnList = "dob")
         }
 )
-public class Patient {
+public class  Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ToString.Exclude
@@ -45,5 +45,8 @@ public class Patient {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
+
+    @OneToOne
+    private Insurance insurance;
 
 }
