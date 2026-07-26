@@ -22,6 +22,7 @@ public class Appointment {
     @Column(length = 500)
     private String reason;
 
+    // owner side
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false )
     private Patient patient;
