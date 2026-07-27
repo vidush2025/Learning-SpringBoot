@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @ToString
@@ -49,4 +50,6 @@ public class  Patient {
     @OneToOne
     private Insurance insurance;
 
+    @OneToMany(mappedBy = "patient")
+    List<Appointment> appointments;
 }
