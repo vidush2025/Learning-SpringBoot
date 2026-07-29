@@ -34,4 +34,15 @@ public class AppointmentService {
         appointmentRepository.save(appointment);
         return appointment;
     }
+
+    @Transactional
+    public Appointment reassignDoctor(@NonNull Long appointmentId, @NonNull Long doctorId){
+        Appointment appt = appointmentRepository.findById(appointmentId).orElseThrow();
+        Doctor doc = doctorRepository.findById(doctorId).orElseThrow();
+
+        appt.setDoctor(doc);
+        // we are under Transactional method, so dirty checking will see that appt is updated
+        // save func will automatically be called as appt is currently in persistent state
+        return appt;
+    }
 }
